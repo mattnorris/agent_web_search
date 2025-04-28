@@ -1,10 +1,10 @@
 [tool.poetry]
-name = "python-package-template"
+name = "agent-web-search"
 version = "0.1.0"
 description = ""
 authors = ["Matt Norris <matt@mattnorris.dev>"]
 readme = "README.md"
-packages = [{ include = "python_package_template", from = "src" }]
+packages = [{ include = "agent_web_search", from = "src" }]
 
 [tool.poetry.dependencies]
 python = "^3.11"

@@ -15,7 +15,7 @@
 name: Rename package
 
 env:
-  PACKAGE_NAME: python_package_template
+  PACKAGE_NAME: agent_web_search
 
 on:
   push:
