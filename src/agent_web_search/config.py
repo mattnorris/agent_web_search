@@ -7,7 +7,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-LOG_LEVEL = config("LOG_LEVEL", default=logging.INFO, cast=str)
+LOG_LEVEL = config("LOG_LEVEL", default=logging.INFO)
 
 
 # Tavily
