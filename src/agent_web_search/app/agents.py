@@ -25,4 +25,4 @@ search_tool_config = SearchToolConfig(api_key=TAVILY_API_KEY)
 search_tool = create_search_tool(search_tool_config)
 
 # Create the search agent itself, a graph.
-graph = create_search_agent(model, search_tool)
+search_agent = create_search_agent(model, search_tool)
