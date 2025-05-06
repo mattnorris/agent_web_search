@@ -1,0 +1,13 @@
+
+run = "poetry run python -m agent_web_search.graph"
+modules = ["python-3.13:v3.13"]
+
+[nix]
+channel = "stable-23_05"
+
+[deployment]
+run = ["poetry", "run", "python", "-m", "agent_web_search.graph"]
+deploymentTarget = "cloudrun"
+
+[languages]
+python = "3.13"

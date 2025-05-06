@@ -31,6 +31,7 @@ mypy = "^1.15.0"
 langgraph-cli = { extras = ["inmem"], version = "^0.2.7" }
 jupyter = "^1.1.1"
 detect-secrets = "^1.5.0"
+streamlit = "^1.45.0"
 
 [build-system]
 requires = ["poetry-core"]
