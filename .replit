@@ -1,12 +1,12 @@
 
-run = "poetry run python -m agent_web_search.graph"
+run = "./scripts/start.sh"
 modules = ["python-3.13:v3.13"]
 
 [nix]
 channel = "stable-23_05"
 
 [deployment]
-run = ["poetry", "run", "python", "-m", "agent_web_search.graph"]
+run = ["./scripts/start.sh"]
 deploymentTarget = "cloudrun"
 
 [languages]
