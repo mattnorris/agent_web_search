@@ -1,12 +1,13 @@
-run = "poetry run streamlit run src/agent_web_search/app/ui.py"
+run = "./scripts/start.sh"
 modules = ["python-3.13:v3.13"]
 
 [nix]
 channel = "stable-23_05"
 
 [deployment]
-run = ["poetry run streamlit run src/agent_web_search/app/ui.py"]
+run = ["./scripts/start.sh"]
 deploymentTarget = "cloudrun"
 
-[languages]
-python = {"version": "3.13"}
+[[ports]]
+localPort = 8501
+externalPort = 80
