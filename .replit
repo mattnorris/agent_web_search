@@ -1,11 +1,11 @@
-run = "STREAMLIT_WELCOME=false ./scripts/start.sh"
+run = "./scripts/start.sh"
 modules = ["python-3.13:v3.13"]
 
 [nix]
 channel = "stable-23_05"
 
 [deployment]
-run = ["STREAMLIT_WELCOME=false", "./scripts/start.sh"]
+run = ["./scripts/start.sh"]
 deploymentTarget = "cloudrun"
 
 [languages.python]
