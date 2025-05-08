@@ -1,6 +1,6 @@
 { pkgs }: {
   deps = [
     pkgs.poetry
-    pkgs.python313
+    pkgs.python3
   ];
 }
