@@ -7,6 +7,3 @@ channel = "stable-23_05"
 [deployment]
 run = ["./scripts/start.sh"]
 deploymentTarget = "cloudrun"
-
-[languages.python]
-version = "3.13"
