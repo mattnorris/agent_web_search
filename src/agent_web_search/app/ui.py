@@ -1,3 +1,4 @@
+from pathlib import Path
 from types import SimpleNamespace
 from typing import Annotated
 
@@ -7,6 +8,16 @@ from langgraph.graph.message import add_messages
 from typing_extensions import TypedDict
 
 from agent_web_search.app import search_agent
+
+CSS_PATH = Path(__file__).parent / "static/css" / "style.css"
+
+
+def load_css():
+    with open(CSS_PATH) as f:
+        st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
+
+
+load_css()
 
 
 class State(TypedDict):
