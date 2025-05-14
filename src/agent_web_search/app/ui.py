@@ -34,6 +34,8 @@ ROLES = SimpleNamespace(
     assistant="assistant",
 )
 
+# NOTE: The avatars are not used currently because of a Replit issue.
+# External images are not displayed.
 AVATARS = SimpleNamespace(
     user="https://github.com/mattnorris.png",
     assistant="https://external-content.duckduckgo.com/ip3/tavily.com.ico",
@@ -53,9 +55,9 @@ if "messages" not in session_state:
 
 
 def run(
-    messages: list = session_state.messages,
+    messages: list,
     roles: SimpleNamespace = ROLES,
-    avatars: SimpleNamespace = AVATARS,
+    # avatars: SimpleNamespace = AVATARS,
 ):
     """Run the Streamlit app.
 
@@ -80,7 +82,7 @@ def run(
     # Display the chat input box.
     if prompt := chat_input("Get the latest news about..."):
         messages.append(HumanMessage(content=prompt))
-        with chat_message(roles.user, avatar=avatars.user):
+        with chat_message(roles.user):
             write(prompt)
 
         # Invoke the search and get the assistant response.
@@ -90,8 +92,8 @@ def run(
 
         # Update the session state with the new message.
         messages.append(assistant_message)
-        with chat_message(roles.assistant, avatar=avatars.assistant):
+        with chat_message(roles.assistant):
             write(assistant_message.content)
 
 
-run()
+run(session_state.messages)
