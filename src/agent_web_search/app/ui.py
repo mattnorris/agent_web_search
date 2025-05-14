@@ -34,6 +34,11 @@ ROLES = SimpleNamespace(
     assistant="assistant",
 )
 
+AVATARS = SimpleNamespace(
+    user="https://github.com/mattnorris.png",
+    assistant="https://external-content.duckduckgo.com/ip3/tavily.com.ico",
+)
+
 TITLE = "Web Search Agent"
 
 st.set_page_config(
@@ -47,7 +52,11 @@ if "messages" not in session_state:
     session_state.messages = []
 
 
-def run(messages: list, roles: SimpleNamespace):
+def run(
+    messages: list = session_state.messages,
+    roles: SimpleNamespace = ROLES,
+    avatars: SimpleNamespace = AVATARS,
+):
     """Run the Streamlit app.
 
     This function is responsible for displaying the chat messages and handling user input.
@@ -58,6 +67,7 @@ def run(messages: list, roles: SimpleNamespace):
     Args:
         messages (list): List of chat messages.
         roles (SimpleNamespace): Roles for the chat messages.
+        avatars (SimpleNamespace): Avatars for the chat messages.
     """
     # Display the chat messages.
     for message in messages:
@@ -70,7 +80,7 @@ def run(messages: list, roles: SimpleNamespace):
     # Display the chat input box.
     if prompt := chat_input("Get the latest news about..."):
         messages.append(HumanMessage(content=prompt))
-        with chat_message(roles.user):
+        with chat_message(roles.user, avatar=avatars.user):
             write(prompt)
 
         # Invoke the search and get the assistant response.
@@ -80,8 +90,8 @@ def run(messages: list, roles: SimpleNamespace):
 
         # Update the session state with the new message.
         messages.append(assistant_message)
-        with chat_message(roles.assistant):
+        with chat_message(roles.assistant, avatar=avatars.assistant):
             write(assistant_message.content)
 
 
-run(session_state.messages, ROLES)
+run()
