@@ -50,4 +50,9 @@ ruff:
 lint: black pylint ruff bandit secrets
 
 
-.PHONY: format pylint lint ruff black bandit secrets pre-commit
+# Run the Streamlit app.
+streamlit:
+	@poetry run streamlit run $(CODE)/agent_web_search/app/ui.py
+
+
+.PHONY: format pylint lint ruff black bandit secrets pre-commit streamlit
